@@ -1,0 +1,45 @@
+class bank_account:
+ def getData (self,name,accno,acctype,balance):
+ self.name=name
+ self.accno=accno
+ self.acctype=acctype
+ self.balance=balance
+ def displayCustomer (self):
+ print("customer Name:", self.name)
+ print("Account Number:",self.accno)
+ print("Account Type:", self.acctype)
+ print("Balance amount :", self.balance)
+ def deposit(self,amount):
+ self.balance=self.balance+amount
+ def withdrawal(self,amount):
+ if self.balance-amount<0:
+ print("insufficent funds")
+ else:
+ self.balance=self.balance-amount
+print("Hello Welcome to BANKING SYSTEM")
+ch=0
+obj=bank_account()
+while ch!=5:
+ print("Select your option")
+ print("1.New customer")
+ print("2.Deposit")
+ print("3.Withdrawal")
+ print("4.Display")
+ print("5.Exit")
+ ch=int(input("Enter your choice:"))
+ if ch==1:
+ obj=bank_account()
+ n=input("Enter name:")
+ no=int(input("Enter account number:"))
+ t=input("Enter Account Type(SB/C):")
+ b=int(input("Enter the Amount:"))
+ obj.getData(n,no,t,b)
+ if ch==2:
+ b=int(input("Enter the amount to be deposited :"))
+ obj.deposit(b)
+ if ch==3:
+b=int(input("Enter the amount to be withdrawns:"))
+ obj.withdrawal(b)
+ if ch==4:
+ obj.displayCustomer()
+else:print("program terminated !!!")
